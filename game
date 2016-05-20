@@ -1,0 +1,50 @@
+x=100
+xo=100
+bx=100
+by=100
+bxs=0
+bys=0
+def setup():
+    global x,bx,by
+    size(600,400)
+    bx=width/2
+    by=height/2
+def draw():
+    global x,bx,by,bxs,bys,xo
+    fill(200,500,300)
+    rect(0,0,600,400)
+    fill(200,340,10)
+    ellipse(bx,by,10,10)
+    fill(200,100,300)
+    rect(50,x,10,100)
+    fill(200,100,300)
+    rect(500,xo,10,100)
+    if keyPressed:
+        if key == "w":
+            x=x-1
+        if key == "s":
+            x=x+1
+        if key == "k":
+            xo=xo+1
+        if key == "i":
+            xo=xo-1       
+        if key == "p":
+            bxs=-2
+            bys=-2
+    if bx>=590:
+        bxs=0
+        bys=0
+        bx=width/2
+        by=height/2
+    bx+=bxs              
+    by+=bys
+    if bx<=5:
+        bxs=-bxs
+    if by<=5:
+        bys=-bys
+    if by>=400:
+        bys=-bys
+    if bx>=595:
+        bxs=-bxs
+if bx<=10 and by>=xo and by<=xo+100 and bx>=100:
+     byx=-byx
